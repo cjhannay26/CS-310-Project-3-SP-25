@@ -1,4 +1,4 @@
-(ns Alice)
+(ns Michael)
 
 (defn map [fun lizt]
 	(cond
