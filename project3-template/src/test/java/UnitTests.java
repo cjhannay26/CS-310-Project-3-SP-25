@@ -12,6 +12,7 @@ class UnitTests {
         var require = Clojure.var("clojure.core", "require");
         require.invoke(Clojure.read("Alice"));
         require.invoke(Clojure.read("Michael"));
+		require.invoke(Clojure.read("Gracie1"));
 	}
 
 	@Test
