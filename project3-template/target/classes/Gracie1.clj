@@ -1,3 +1,5 @@
+(ns Gracie1)
+
 (defn member [var lizt]
     (cond
         (empty? lizt) false
