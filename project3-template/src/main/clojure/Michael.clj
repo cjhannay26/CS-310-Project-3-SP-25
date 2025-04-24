@@ -2,10 +2,10 @@
 
 (defn map [fun lizt]
 	(cond
-		(empty?lizt) '()
+		(empty? lizt) '()
 		:else (cons (fun (first lizt))
 			(map fun (rest lizt)))
-		)
+	)
 )
 
 (defn same [lizt1 lizt2]
