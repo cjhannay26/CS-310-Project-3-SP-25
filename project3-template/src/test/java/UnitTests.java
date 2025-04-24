@@ -39,12 +39,21 @@ class UnitTests {
 
 	@Test
 	void testMichaelSameJava() {
-		// This is for testing Michael's same function (Java)
+		var list1 = List.of("A", "B", "C", "D", "E");
+		var list2 = List.of("A", "B", "C", "D", "E");
+		var list3 = List.of("Z", "B", "C", "D", "E");
+		assertEquals(true, Michael.same(list1, list2));
+		assertEquals(false, Michael.same(list1, list3));
 	}
 
 	@Test
 	void testMichaelSameClojure() {
-		// This is for testing Michael's same function (Clojure)
+		/*var same = Clojure.var("Michael", "same");
+		var list1 = List.of("A", "B", "C", "D", "E");
+		var list2 = List.of("A", "B", "C", "D", "E");
+		var list3 = List.of("Z", "B", "C", "D", "E");
+		assertEquals(true, same.invoke(list1, list2));
+		assertEquals(false, same.invoke(list1, list3));*/
 	}
 
 	@Test
