@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeAll;
@@ -30,12 +31,16 @@ class UnitTests {
 
 	@Test
 	void testMichaelMapJava() {
-		// This is for testing Michael's map function (Java)
+		var input = List.of(1, 2, 3, 4);
+		assertEquals(List.of(1, 8, 27, 64), Michael.map(x -> x * x * x, input));
 	}
 
 	@Test
 	void testMichaelMapClojure() {
-		// This is for testing Michael's map function (Clojure)
+		var map = Clojure.var("Michael", "map");
+		var input = List.of(1, 2, 3, 4);
+		var cubed = input.stream().map(x -> x * x * x).collect(Collectors.toList());
+		assertEquals(List.of(1, 8, 27, 64), map.invoke(cubed, input));
 	}
 
 	@Test
@@ -64,7 +69,14 @@ class UnitTests {
 
 	@Test
 	void testGracieMemberClojure() {
-		// This is for testing Gracie's member function (Clojure)
+		var member = Clojure.var("Gracie1", "member");
+		var element = "A";
+		var list1 = List.of("A", "B", "C", "D", "E");
+		var list2 = List.of("B", "C", "D", "E");
+		var list3 = List.of();
+		assertEquals(true, member.invoke(element, list1));
+		assertEquals(false, member.invoke(element, list2));
+		assertEquals(false, member.invoke(element, list3));
 	}
 
 	@Test
