@@ -13,7 +13,7 @@ class UnitTests {
         var require = Clojure.var("clojure.core", "require");
         require.invoke(Clojure.read("Alice"));
         require.invoke(Clojure.read("Michael"));
-		require.invoke(Clojure.read("Gracie1"));
+		require.invoke(Clojure.read("Gracie"));
 	}
 
 	@Test
@@ -64,12 +64,18 @@ class UnitTests {
 
 	@Test
 	void testGracieMemberJava() {
-		// This is for testing Gracie's member function (Java)
+		var element = "A";
+		var list1 = List.of("A", "B", "C", "D", "E");
+		var list2 = List.of("B", "C", "D", "E");
+		var list3 = List.of();
+		assertEquals(true, Gracie.member(element, list1));
+		assertEquals(false, Gracie.member(element, list2));
+		assertEquals(false, Gracie.member(element, list3));
 	}
 
 	@Test
 	void testGracieMemberClojure() {
-		var member = Clojure.var("Gracie1", "member");
+		var member = Clojure.var("Gracie", "member");
 		var element = "A";
 		var list1 = List.of("A", "B", "C", "D", "E");
 		var list2 = List.of("B", "C", "D", "E");
@@ -81,12 +87,21 @@ class UnitTests {
 
 	@Test
 	void testGracieAppendJava() {
-		// This is for testing Gracie's append function (Java)
+		var list1 = List.of("A", "B", "C", "D");
+		var list2 = List.of("W", "X", "Y", "Z");
+		var list3 = List.of();
+		assertEquals(List.of("A", "B", "C", "D", "W", "X", "Y", "Z"), Gracie.append(list1, list2));
+		assertEquals(List.of("W", "X", "Y", "Z"), Gracie.append(list2, list3));
 	}
 
 	@Test
 	void testGracieAppendClojure() {
-		// This is for testing Gracie's append function (Clojure)
+		var append = Clojure.var("Gracie", "append");
+		var list1 = List.of("A", "B", "C", "D");
+		var list2 = List.of("W", "X", "Y", "Z");
+		var list3 = List.of();
+		assertEquals(List.of("A", "B", "C", "D", "W", "X", "Y", "Z"), append.invoke(list1, list2));
+		assertEquals(List.of("W", "X", "Y", "Z"), append.invoke(list2, list3));
 	}
 
 	@Test
