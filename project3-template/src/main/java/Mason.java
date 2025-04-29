@@ -3,7 +3,7 @@ import  java.util.ArrayList;
 
 // Define function called intersect that takes in 2 lists
 // Returns a list
-/*public class Mason {
+public class Mason {
     public static <T> List<T> intersect(List<T> list1, List<T> list2) {
         // if list1 is null, return empty list
         if (list1 == null) {
@@ -15,7 +15,7 @@ import  java.util.ArrayList;
 
         else // return intersect passed cdr of list
     }
-}*/
+}
 
 
 // 

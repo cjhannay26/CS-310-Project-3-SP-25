@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import clojure.java.api.Clojure;
 
 class UnitTests {
+	@SuppressWarnings("unused")
 	@BeforeAll
 	static void requires() {
         var require = Clojure.var("clojure.core", "require");
