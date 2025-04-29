@@ -31,16 +31,20 @@ class UnitTests {
 
 	@Test
 	void testMichaelMapJava() {
-		var input = List.of(1, 2, 3, 4);
-		assertEquals(List.of(1, 8, 27, 64), Michael.map(x -> x * x * x, input));
+		var input1 = List.of(1, 2, 3, 4);
+		var input2 = List.of();
+		assertEquals(List.of(1, 8, 27, 64), Michael.map(x -> x * x * x, input1));
+		assertEquals(List.of(), Michael.map(null, input2));
 	}
 
 	@Test
 	void testMichaelMapClojure() {
 		var map = Clojure.var("Michael", "map");
-		var input = List.of(1, 2, 3, 4);
-		var cubed = input.stream().map(x -> x * x * x).collect(Collectors.toList());
-		assertEquals(List.of(1, 8, 27, 64), map.invoke(cubed, input));
+		var input1 = List.of(1, 2, 3, 4);
+		var input2 = List.of();
+		var cubed = input1.stream().map(x -> x * x * x).collect(Collectors.toList());
+		assertEquals(List.of(1, 8, 27, 64), map.invoke(cubed, input1));
+		assertEquals(List.of(), map.invoke(cubed, input2));
 	}
 
 	@Test
@@ -92,6 +96,7 @@ class UnitTests {
 		var list3 = List.of();
 		assertEquals(List.of("A", "B", "C", "D", "W", "X", "Y", "Z"), Gracie.append(list1, list2));
 		assertEquals(List.of("W", "X", "Y", "Z"), Gracie.append(list2, list3));
+		assertEquals(List.of("A", "B", "C", "D"), Gracie.append(list3, list1));
 	}
 
 	@Test
@@ -102,6 +107,7 @@ class UnitTests {
 		var list3 = List.of();
 		assertEquals(List.of("A", "B", "C", "D", "W", "X", "Y", "Z"), append.invoke(list1, list2));
 		assertEquals(List.of("W", "X", "Y", "Z"), append.invoke(list2, list3));
+		assertEquals(List.of("A", "B", "C", "D"), append.invoke(list3, list1));
 	}
 
 	@Test
