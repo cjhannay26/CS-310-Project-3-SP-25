@@ -36,6 +36,8 @@ class UnitTests {
 		var clojureResult1 = vec.invoke(map.invoke(cubeFunction, input1));
 		var clojureResult2 = vec.invoke(map.invoke(cubeFunction, input2));
 
+		// We had lots of trouble testing this one and got this to work
+		// We would like some feedback on whether or not there is a better way to do this
 		List<Long> result1 = new ArrayList<>();
 		for (Object o : (Iterable<?>) clojureResult1) {
 			result1.add((Long) o);
