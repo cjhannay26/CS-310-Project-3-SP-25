@@ -8,6 +8,9 @@
 	)
 )
 
+(defn cube [x]
+	(* x x x))
+
 (defn same [lizt1 lizt2]
 	(cond
 		(empty? lizt1) (empty? lizt2)

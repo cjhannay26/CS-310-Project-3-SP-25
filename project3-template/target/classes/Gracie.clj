@@ -4,7 +4,7 @@
     (cond
         (empty? lizt) false
         (= var (first lizt)) true 
-        :else (member var rest(lizt)) 
+        :else (member var (rest lizt)) 
     )
 )
 
