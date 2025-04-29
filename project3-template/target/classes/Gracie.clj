@@ -1,4 +1,4 @@
-(ns Gracie1)
+(ns Gracie)
 
 (defn member [var lizt]
     (cond
