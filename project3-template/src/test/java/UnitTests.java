@@ -136,7 +136,7 @@ class UnitTests {
 
 		assertEquals(List.of("Y", "E", "S"), Mason.intersect(list1, list2)); // Returns Matching list
 		assertEquals(List.of(), Mason.intersect(list1, list4)); // No matches between lists
-		assertEquals(List.of(), Mason.intersect(List.of(), list4));
+		assertEquals(List.of(), Mason.intersect(List.of(), list4)); // First list passed is null, should return null list
 	}
 
 	@Test
@@ -150,6 +150,6 @@ class UnitTests {
 
 		assertEquals(List.of("Y", "E", "S"), intersect.invoke(list1, list2)); // Returns Matching list
 		assertEquals(List.of(), intersect.invoke(list1, list4)); // No matches between lists
-		assertEquals(List.of(), intersect.invoke(list3, list1)); // First list passed is null, return null list
+		assertEquals(List.of(), intersect.invoke(list3, list1)); // First list passed is null, should return null list
 	}
 }
