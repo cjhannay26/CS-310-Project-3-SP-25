@@ -5,12 +5,12 @@ import  java.util.List;
 // Returns a list
 public class Mason {
     public static <T> List<T> intersect(List<T> list1, List<T> list2) {
+        List<T> result = new ArrayList<>();
+
         // if list1 is null, return empty list
         if (list1 == null) {
-            return new ArrayList<>();
+            return result;
         }
-
-        List<T> result = new ArrayList<>();
 
         // Iterate through list 1
         for (T item : list1) {
