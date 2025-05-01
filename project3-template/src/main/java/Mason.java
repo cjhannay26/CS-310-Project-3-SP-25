@@ -9,13 +9,19 @@ public class Mason {
         if (list1 == null) {
             return new ArrayList<>();
         }
-        // (memq (car lizt1) list2)
-        //     (cons (car lizt1) (intersect (cdr lizt1) lizt2))
 
-        else // return intersect passed cdr of list
-        {
-            return null; // stub
+        List<T> result = new ArrayList<>();
+
+        // Iterate through list 1
+        for (T item : list1) {
+            //if list 2 contains said element
+            if (list2.contains(item)) {
+                result.add(item); // add it to returned list
+            }
         }
+
+        // Return resulting list
+        return result;
     }
 }
 
