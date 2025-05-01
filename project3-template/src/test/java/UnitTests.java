@@ -14,6 +14,7 @@ class UnitTests {
         var require = Clojure.var("clojure.core", "require");
         require.invoke(Clojure.read("Michael"));
 		require.invoke(Clojure.read("Gracie"));
+		require.invoke(Clojure.read("Mason"));
 	}
 
 	@Test
@@ -128,11 +129,27 @@ class UnitTests {
 
 	@Test
 	void testMasonIntersectJava() {
-		// This is for testing Mason's intersect function (Java)
+		var list1 = List.of("Y", "N", "E", "O", "S", "G", "T");
+		var list2 = List.of("Y", "E", "S", "Z");
+		var list3 = List.of();
+		var list4 = List.of("R", "A", "P");
+
+		assertEquals(List.of("Y", "E", "S"), Mason.intersect(list1, list2)); // Returns Matching list
+		assertEquals(List.of(), Mason.intersect(list1, list4)); // No matches between lists
+		assertEquals(List.of(), Mason.intersect(List.of(), list4));
 	}
 
 	@Test
 	void testMasonIntersectClojure() {
-		// This is for testing Mason's intersect function (Clojure)
+		var intersect = Clojure.var("Mason", "intersect");
+
+		var list1 = List.of("Y", "N", "E", "O", "S", "G", "T");
+		var list2 = List.of("Y", "E", "S", "Z");
+		var list3 = List.of();
+		var list4 = List.of("R", "A", "P");
+
+		assertEquals(List.of("Y", "E", "S"), intersect.invoke(list1, list2)); // Returns Matching list
+		assertEquals(List.of(), intersect.invoke(list1, list4)); // No matches between lists
+		assertEquals(List.of(), intersect.invoke(list3, list1)); // First list passed is null, return null list
 	}
 }
